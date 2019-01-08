@@ -130,7 +130,13 @@
 
                 var payment = function payment() {
                     return paypal.rest.payment.create(_this2.props.env, _this2.props.client, {
-                        transactions: [{ amount: { total: _this2.props.total, currency: _this2.props.currency } }]
+                        transactions: [{
+                            amount: {
+                                total: _this2.props.total,
+                                currency: _this2.props.currency
+                            },
+                            invoice_number: _this2.props.invoiceNumber
+                        }]
                     }, {
                         input_fields: {
                             // any values other than null, and the address is not returned after payment execution.
@@ -186,6 +192,7 @@
     PaypalButton.propTypes = {
         currency: _propTypes2.default.string.isRequired,
         total: _propTypes2.default.number.isRequired,
+        invoiceNumber: _propTypes2.default.string.isRequired,
         client: _propTypes2.default.object.isRequired,
         locale: _propTypes2.default.string,
         style: _propTypes2.default.object

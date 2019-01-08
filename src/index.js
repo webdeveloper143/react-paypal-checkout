@@ -37,7 +37,13 @@ class PaypalButton extends React.Component {
         let payment = () => {
             return paypal.rest.payment.create(this.props.env, this.props.client, {
                 transactions: [
-                    { amount: { total: this.props.total, currency: this.props.currency } }
+                    { 
+                        amount: { 
+                            total: this.props.total, 
+                            currency: this.props.currency 
+                        },
+                        invoice_number: this.props.invoiceNumber
+                    }
                 ]
             }, {
                 input_fields: {
@@ -87,6 +93,7 @@ class PaypalButton extends React.Component {
 PaypalButton.propTypes = {
     currency: PropTypes.string.isRequired,
     total: PropTypes.number.isRequired,
+    invoiceNumber: PropTypes.string.isRequired,
     client: PropTypes.object.isRequired,
     locale: PropTypes.string,
     style: PropTypes.object
