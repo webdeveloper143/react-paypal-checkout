@@ -71,6 +71,9 @@ class PaypalButton extends React.Component {
         }
 
         let ppbtn = '';
+        let funding = {
+            allowed: [ paypal.FUNDING.CARD, paypal.FUNDING.CREDIT, paypal.FUNDING.VENMO ]
+        };
         if (this.state.showButton) {
             ppbtn = <paypal.Button.react
                 env={this.props.env}
@@ -81,6 +84,7 @@ class PaypalButton extends React.Component {
                 commit={true}
                 onAuthorize={onAuthorize}
                 onCancel={this.props.onCancel}
+                funding={funding}
 
                 // "Error: Unrecognized prop: shipping" was caused by the next line
                 // shipping={this.props.shipping}

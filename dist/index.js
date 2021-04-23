@@ -163,6 +163,9 @@
                 };
 
                 var ppbtn = '';
+                var funding = {
+                    allowed: [paypal.FUNDING.CARD, paypal.FUNDING.CREDIT, paypal.FUNDING.VENMO]
+                };
                 if (this.state.showButton) {
                     ppbtn = _react2.default.createElement(paypal.Button.react, {
                         env: this.props.env,
@@ -172,7 +175,8 @@
                         payment: payment,
                         commit: true,
                         onAuthorize: onAuthorize,
-                        onCancel: this.props.onCancel
+                        onCancel: this.props.onCancel,
+                        funding: funding
 
                         // "Error: Unrecognized prop: shipping" was caused by the next line
                         // shipping={this.props.shipping}
