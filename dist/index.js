@@ -164,7 +164,7 @@
 
                 var ppbtn = '';
                 var funding = {
-                    allowed: [paypal.FUNDING.CARD, paypal.FUNDING.CREDIT, paypal.FUNDING.VENMO]
+                    allowed: ['paypal.FUNDING.CARD', 'paypal.FUNDING.CREDIT', 'paypal.FUNDING.VENMO']
                 };
                 if (this.state.showButton) {
                     ppbtn = _react2.default.createElement(paypal.Button.react, {

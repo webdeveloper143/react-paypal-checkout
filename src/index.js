@@ -72,7 +72,7 @@ class PaypalButton extends React.Component {
 
         let ppbtn = '';
         let funding = {
-            allowed: [ paypal.FUNDING.CARD, paypal.FUNDING.CREDIT, paypal.FUNDING.VENMO ]
+            allowed: [ 'paypal.FUNDING.CARD', 'paypal.FUNDING.CREDIT', 'paypal.FUNDING.VENMO' ]
         };
         if (this.state.showButton) {
             ppbtn = <paypal.Button.react
